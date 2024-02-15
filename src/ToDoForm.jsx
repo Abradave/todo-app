@@ -1,14 +1,16 @@
 import PropTypes from "prop-types";
 
 function ToDoForm(props) {
-    const { newTodo, setNewTodo, addClick } = props
+    const { newTodoRef, addClick } = props
+    
+
     return (
 
         <section>
             <h2>Teendő hozzáadása</h2>
             <label>Feladat:
                 <br />
-                <input type="text" placeholder='Feladat' value={newTodo} onInput={event => setNewTodo(event.currentTarget.value)} />
+                <input type="text" placeholder='Feladat' ref={newTodoRef} />
             </label>
             <br />
             <button type="button" onClick={() => addClick()}>Hozzáad</button>
@@ -17,8 +19,7 @@ function ToDoForm(props) {
 }
 
 ToDoForm.propTypes = {
-    newTodo: PropTypes.string.isRequired,
-    setNewTodo: PropTypes.func.isRequired,
+   newTodoRef: PropTypes.any.isRequired,
     addClick: PropTypes.func.isRequired
 }
 
